@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "YourPet",
   plugins: [react()],
-  base: '/your-pet/',
-})
+  server: {
+    port: 3000,
+  },
+});
