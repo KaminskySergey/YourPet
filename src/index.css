@@ -64,3 +64,8 @@ img{
   display: block;
   width: 100%;
 }
+
+/* =================== */
+.active-nav {
+  color: #FFC107;
+}
