@@ -9,7 +9,7 @@ const App = () => {
     <>
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/yourPet" element={<FindPet />}/>
+        <Route path="/FindPet" element={<FindPet />}/>
       </Route>
     </Routes>
       {/* <Layout>
