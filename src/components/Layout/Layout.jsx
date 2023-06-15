@@ -1,15 +1,25 @@
 
 import Navigation from "../Navigation/Navigation"
-import { Wrapper, Section } from "./Layout.styled"
+import { useResponce } from "../hooks/response/response"
+import { Wrapper, Section, Header } from "./Layout.styled"
 
-const Layout = () => {
+
+
+
+
+const Layout = ({children}) => {
+    const {isDesktop, isTablet, isMobile} = useResponce()
     return (
         <>
         <Wrapper>
+            
+            <Header>
             <Navigation />
+            </Header>
+            
             <main>
-                <Section>
-
+                <Section isDesktop={isDesktop} isTablet={isTablet} isMobile={isMobile}>
+                    {children}
                 </Section>
             </main>
         </Wrapper>
