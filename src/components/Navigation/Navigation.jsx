@@ -19,9 +19,9 @@ const Navigation = () => {
                 </NavItem>
             </ListNav>}
             
-            {/* <div>
-                <p>Man</p>
-            </div> */}
+            <div>
+                <Link to={'./myAccount'}>Man</Link>
+            </div>
         </HeaderCont>
         </>
     )
