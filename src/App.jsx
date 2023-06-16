@@ -10,8 +10,10 @@ const App = () => {
     <>
     <Routes>
       <Route path="/" element={<Layout />}>
+
         <Route path="/yourPet" element={<FindPet />}/>
         <Route path="/myAccount" element={<MyAccount />}/>
+
       </Route>
     </Routes>
       {/* <Layout>
