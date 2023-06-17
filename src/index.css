@@ -70,3 +70,9 @@ img{
 .active-nav {
   color: #FFC107;
 }
+
+.register-bg {
+  background-image: url('./assets//background.png');
+  background-size: cover;
+  background-position: center;
+}

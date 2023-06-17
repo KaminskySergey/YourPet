@@ -104,7 +104,7 @@ export const ItemIcons = styled.li`
   align-items: center;
   padding: 2px 0;
 `
-export const TextIcons = styled.li`
+export const TextIcons = styled.p`
   font-family: 'ManropeSemiBolt';
 font-style: normal;
 font-weight: 600;

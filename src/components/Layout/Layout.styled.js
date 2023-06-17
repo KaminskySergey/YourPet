@@ -13,18 +13,19 @@ export const Header = styled.header`
   top: 0;
   left: 0;
   z-index: 3;
-  background-color: aqua;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  border-bottom: 1px solid #ECECEC;
 `
 
 export const Section = styled.div`
   min-height: 100vh;
   width: 100%;
   text-align: center;
+  /* display: flex;
+  justify-content: center; */
   padding: ${(props) => {
     if (props.isDesktop) {
       return '148px 16px 16px';
