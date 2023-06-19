@@ -36,7 +36,7 @@ const Navigation = () => {
             </div>
             <ListButton>
             <ItemButton>
-                    <LinkAuth to={'/logIn'}>
+                    <LinkAuth to={'/login'}>
                         Log IN
                         <Paw style={{marginLeft: '8px'}}/>
                     </LinkAuth>

@@ -14,7 +14,7 @@ const Layout = ({children}) => {
     const { pathname } = useLocation();
     return (
         <>
-        <Wrapper className={pathname === '/register' ? 'register-bg' : ''}>
+        <Wrapper className={(pathname === '/register' ? 'register-bg' : '') || (pathname === '/login' ? 'register-bg' : '')}>
             
             <Header>
             <Navigation />

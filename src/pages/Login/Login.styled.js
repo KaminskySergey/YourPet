@@ -91,15 +91,6 @@ align-items: center;
 justify-content: center;
 letter-spacing: 0.04em;
 color: #888888;
-span {
-    margin-left: 4px;
-    color: #54ADFF;
-    text-decoration: underline;
-    transition: all 250ms;
-    &:hover, &:focus {
-        color: #183e61;
-    }
-}
 `
 
 export const LinkChange = styled(Link)`
