@@ -6,6 +6,9 @@ import { useResponce } from "../hooks/response/response";
 import Modal from "../Modal/Modal";
 import { useState } from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { selectedIsLoadingUser, selectedUser } from "../../redux/auth/selectorsAuth";
+import Box from "../Box/Box";
 
 
 
@@ -14,6 +17,9 @@ const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false)
     const {isDesktop, isTablet, isMobile} = useResponce()
     console.log(isDesktop) 
+    const isAuth = useSelector(selectedIsLoadingUser)
+    const {user} = useSelector(selectedUser)
+    console.log(user, 'isAuth')
     const handleToggle = () => {
         setIsOpen(pS => !pS)
     }
@@ -34,7 +40,7 @@ const Navigation = () => {
             <div>
                 <Link to={'./myAccount'}>Man</Link>
             </div>
-            <ListButton>
+            {!isAuth ? <ListButton>
             <ItemButton>
                     <LinkAuth to={'/login'}>
                         Log IN
@@ -46,9 +52,18 @@ const Navigation = () => {
                         Registration
                     </LinkAuth>
                 </ItemButton>
-            </ListButton>
+            </ListButton> : 
+            <Box style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: 'auto'}}>
+                <div style={{width: '16px', height: '16px', backgroundColor: 'green'}}>
+                    <img src="" alt="" />
+                </div>
+                <div>
+                    <p>{user.email}</p>
+                </div>
+            </Box>
+            }
         </HeaderCont>
-        {/* {isOpen && <Modal />} */}
+        
         </>
     )
 }

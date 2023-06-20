@@ -8,6 +8,8 @@ import Login from "./pages/Login/Login";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { refresh } from "./redux/auth/thunkAuth";
+import { RestrictedRoute } from "./components/Route/RestrictedRoute";
+import { PrivateRoute } from "./components/Route/PrivateRoute";
 
 
 const App = () => {
@@ -17,6 +19,7 @@ const App = () => {
     dispatch(refresh())
     
   }, [dispatch])
+  
 
     return (
     <>
@@ -24,9 +27,9 @@ const App = () => {
       <Route path="/" element={<Layout />}>
 
         <Route path="/yourPet" element={<FindPet />}/>
-        <Route path="/myAccount" element={<MyAccount />}/>
-        <Route path="/register" element={<Register />}/>
-        <Route path="/login" element={<Login />}/>
+        <Route path="/myAccount" element={<PrivateRoute component={MyAccount} redirectTo="/yourPet"/>}/>
+        <Route path="/register" element={<RestrictedRoute component={Register} redirectTo="/yourPet"/>}/>
+        <Route path="/login" element={<RestrictedRoute component={Login} redirectTo="/yourPet"/>}/>
       </Route>
     </Routes>
       {/* <Layout>

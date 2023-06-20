@@ -16,13 +16,14 @@ import { selectedPets } from "../../redux/pets/selectorsPets";
 
 // СОЗДАЙ 2 КНОПКУ ====================================================================
 
-const GalleryItem = () => {
+const GalleryItem = ({handleInfoPet}) => {
   const [isPaw, setIsPaw] = useState(false)
   const dispatch = useDispatch()
   const pets = useSelector(selectedPets)
   console.log(pets)
-  const handleClickButton = (id) => {
-    setIsPaw((pS) => (pS === id ? null : id))
+  const handleClickButton = (data) => {
+    handleInfoPet(data)
+    setIsPaw((pS) => (pS === data._id ? null : data._id))
     }
   
   useEffect(() => {
@@ -59,7 +60,7 @@ const GalleryItem = () => {
         </ContainerImg>
         <div style={{padding: '0 20px'}}>
           <Title>{title}</Title>
-          <Button isPaw={isPaw} type="button" onClick={() => handleClickButton(_id)}> 
+          <Button isPaw={isPaw} type="button" onClick={() => handleClickButton({_id, status, title, name, birth, age, price, sex, breed, image, location, comments})}> 
            <ButtonText isPaw={isPaw}>Load more</ButtonText>
            {isPaw === _id && <LogoPaw />}
           </Button>

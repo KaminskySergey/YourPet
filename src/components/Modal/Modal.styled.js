@@ -14,7 +14,7 @@ export const Backdrop = styled.div`
 export const ModalContainer = styled.div`
   position: absolute;
   max-width: 95%;
-  padding: 48px 18px 40px;
+  /* padding: 48px 18px 40px; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -22,18 +22,18 @@ export const ModalContainer = styled.div`
   box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
 border-radius: 40px;
 
-  @media (min-width: 375px) {
+  /* @media (min-width: 375px) {
     width: 300px;
-    /* height: 50%; */
+    height: 50%; 
   }
   @media (max-width: 1279px) {
-    /* width and height */
+    
   }
   @media (min-width: 768px) {
     width: 396px;
     height: 360px;
     padding: 40px 28px;
-  }
+  } */
 `;
 
 export const CloseModal = styled.button`
