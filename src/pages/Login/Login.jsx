@@ -2,8 +2,11 @@ import { Formik, Form, useFormik } from "formik"
 import AuthContainer from "../../components/AuthContainer/AuthContainer"
 import { Button, Input, Label, LinkChange, Text, Title } from "./Login.styled"
 import { useResponce } from "../../components/hooks/response/response"
+import { useDispatch } from "react-redux"
+import { login } from "../../redux/auth/thunkAuth"
 
 const Login = () => {
+    const dispatch = useDispatch()
     const {isDesktop, isTablet, isMobile} = useResponce()
     const formik = useFormik({
         initialValues: {
@@ -12,6 +15,7 @@ const Login = () => {
         },
         onSubmit: (value, { resetForm }) => {
             console.log(value)
+            dispatch(login(value))
             resetForm()
         }
     })

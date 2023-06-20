@@ -102,7 +102,7 @@ export const ItemIcons = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2px 0;
+  padding: 5px;
 `
 export const TextIcons = styled.p`
   font-family: 'ManropeSemiBolt';

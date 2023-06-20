@@ -10,16 +10,20 @@ import {
     REGISTER,
   } from 'redux-persist'
 import persistStore from 'redux-persist/es/persistStore'
+import { initPets } from './pets/initPets'
+import { petsReducer } from './pets/slicePets'
 
 const initialState = {
-auth: initAuth
+auth: initAuth,
+pets: initPets,
 }
 
 export const store = configureStore({
   preloadedState: initialState,
   devTools: true,
   reducer: {
-    auth: authReducer
+    auth: authReducer,
+    pets: petsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

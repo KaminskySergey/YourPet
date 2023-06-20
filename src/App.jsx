@@ -1,12 +1,22 @@
 import Layout from "./components/Layout/Layout"
 import FindPet from "./pages/FindPet/FindPet";
-import Gallery from "./pages/FindPet/FindPet"
+// import Gallery from "./pages/FindPet/FindPet"
 import { Route, Routes } from 'react-router-dom';
 import MyAccount from "./pages/MyAccount/MyAccount";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { refresh } from "./redux/auth/thunkAuth";
+
 
 const App = () => {
+  const dispatch = useDispatch()
+    
+  useEffect(() => {
+    dispatch(refresh())
+    
+  }, [dispatch])
 
     return (
     <>

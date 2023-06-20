@@ -1,0 +1,1 @@
+export const selectedPets = state => state.pets.pets;

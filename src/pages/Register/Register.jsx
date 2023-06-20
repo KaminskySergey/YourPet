@@ -4,7 +4,7 @@ import { useResponce } from "../../components/hooks/response/response";
 import { Button, Input, Label, Title, Text, LinkChange } from "./Register.styled";
 import * as Yup from 'yup';
 import { useDispatch } from "react-redux";
-import { register } from "../../redux/auth/thunkAuth";
+import { login, register } from "../../redux/auth/thunkAuth";
 
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,20}$/;
 // min 5 max 20 characters , 1 upper case letter, 1 lower case letter, 1 numeric digit
@@ -31,11 +31,17 @@ const Register = () => {
             passwordConfirm: '',
           },
           validationSchema: RegisterValidSchema,
-          onSubmit: (value, { resetForm }) => {
+          onSubmit: async (value, { resetForm }) => {
                   if(value.password === value.passwordConfirm){
                     const { passwordConfirm, ...data } = value;
                     console.log(data)
-                    dispatch(register(data))
+                    const resultAction = await dispatch(register(data))
+                    if(resultAction.type === 'auth/register/fulfilled'){
+                        await dispatch(login({
+                            email: value.email,
+                            password: value.password,
+                        }))
+                    }
                     resetForm()
                   } else {
                     console.log('не правильный пароль')
