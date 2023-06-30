@@ -10,6 +10,8 @@ import { useEffect } from "react";
 import { refresh } from "./redux/auth/thunkAuth";
 import { RestrictedRoute } from "./components/Route/RestrictedRoute";
 import { PrivateRoute } from "./components/Route/PrivateRoute";
+import ChooseOption from "./pages/AddPet/ChooseOption";
+import AddPet from "./pages/AddPet/AddPet";
 
 
 const App = () => {
@@ -29,7 +31,9 @@ const App = () => {
         <Route path="/yourPet" element={<FindPet />}/>
         <Route path="/myAccount" element={<PrivateRoute component={MyAccount} redirectTo="/yourPet"/>}/>
         <Route path="/register" element={<RestrictedRoute component={Register} redirectTo="/yourPet"/>}/>
-        <Route path="/login" element={<RestrictedRoute component={Login} redirectTo="/yourPet"/>}/>
+        <Route path="/login" element={<RestrictedRoute component={Login} redirectTo="/yourPet"/>}/>        
+        <Route path="/addPet" element={<PrivateRoute component={AddPet} redirectTo="/myAccount"/>}/>        
+
       </Route>
     </Routes>
       {/* <Layout>

@@ -76,3 +76,8 @@ img{
   background-size: cover;
   background-position: center;
 }
+
+.active_Btn {
+   color: green;
+   background-color: #CCE4FB;
+}

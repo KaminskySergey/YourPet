@@ -34,7 +34,6 @@ const Register = () => {
           onSubmit: async (value, { resetForm }) => {
                   if(value.password === value.passwordConfirm){
                     const { passwordConfirm, ...data } = value;
-                    console.log(data)
                     const resultAction = await dispatch(register(data))
                     if(resultAction.type === 'auth/register/fulfilled'){
                         await dispatch(login({

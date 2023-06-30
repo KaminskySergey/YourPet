@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import InfoUser from "./InfoUser/InfoUser";
 import MyPets from "./MyPets/MyPets";
+import Modal from "../../components/Modal/Modal";
+import AddPet from "../AddPet/AddPet";
 
 export const Container = styled.div`
     outline: 2px solid black;
@@ -22,6 +24,7 @@ const MyAccount = () => {
             <InfoUser />
             <MyPets />
         </Container>
+        
         </>
     )
 }

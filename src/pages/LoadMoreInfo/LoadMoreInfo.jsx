@@ -5,6 +5,9 @@ export const Container = styled.div`
     padding: 44px 20px 16px;
     min-width: 280px;
     @media (min-width: 768px){
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         width: 681px;
         height: 540px;
     }
@@ -13,18 +16,57 @@ export const Container = styled.div`
         height: 540px;
     }
 `
+export const ContTop = styled.div`
+@media (max-width: 767px) {
+    margin-bottom: 13px;
+}
+    @media (min-width: 768px) {
+        display: flex;
+        margin-bottom: 28px;
+    }
+`
+
+export const ContCommentsBottom = styled.div`
+@media (max-width: 767px) {
+    margin-bottom: 12px;
+    p {
+        font-family: 'ManropeSemiBolt';
+font-weight: 600;
+font-size: 14px;
+line-height: 19px;
+letter-spacing: 0.04em;
+
+color: #000000;
+    }
+    span {
+        font-weight: 500;
+    }
+}
+@media (min-width: 768px) {
+    font-size: 16px;
+line-height: 24px;
+}
+`
+
 export const ContImg = styled.div`
 
-@media (max-width: 767px){}
-/* max-width: 240px;
-height: 240px; */
-margin: 0 auto;
-margin-bottom: 12px;
+@media (max-width: 767px){
+    margin: 0 auto;
+    margin-bottom: 12px;
+
+}
+@media (min-width: 768px) {
+        width: 262px;
+        height: 298px;
+        margin-right: 24px;
+    }
 `
 
 export const Image = styled.img`
 width: 100%;
+height: 100%;
     border-radius: 0px 0px 40px 40px;
+    
 `
 
 export const Title = styled.h2`
@@ -77,6 +119,65 @@ color: #000000;
 line-height: 22px;
 }
 `
+export const ContButton = styled.div`
+    @media (min-width: 768px) {
+    margin-left: auto;
+}
+`
+
+export const ListButton = styled.ul`
+    @media (max-width: 767px) {
+    li + li {
+        margin-top: 8px;
+    }
+    li:first-child button {
+        color: #54ADFF;
+        transition: all 250ms;
+        &:hover, &:focus {
+            color: #0011ff;
+            border-color: #0011ff;
+        }
+    }
+
+    li:last-child button {
+        color: #FEF9F9;
+        transition: all 250ms;
+        background-color: #54ADFF;
+        &:hover, &:focus {
+            color: #0011ff;
+            border-color: #0011ff;
+        }
+    }
+}
+@media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    li:last-child button {
+        margin-left: 17px;
+    }
+}
+`
+export const Button = styled.button`
+    font-family: 'ManropeBolt';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.04em;
+    display: flex;
+justify-content: center;
+align-items: center;
+border: 2px solid #54ADFF;
+border-radius: 40px;
+padding: 8px 20px;
+cursor: pointer;
+height: 40px;
+
+@media (max-width: 767px) {
+    width: 100%;
+}
+
+`
 const LoadMoreInfo = ({currentPet}) => {
     const name = currentPet.title;
     const { _id, title, ...petInfo} = currentPet
@@ -84,6 +185,7 @@ const LoadMoreInfo = ({currentPet}) => {
         <>
         <Container>
             <div>
+            <ContTop>
                 <ContImg>
                     <Image src="../../../src/assets/Rectangle24.png" alt="cat" />
                 </ContImg>
@@ -121,7 +223,21 @@ const LoadMoreInfo = ({currentPet}) => {
                 </li>
                     </List>
                 </div>
+            </ContTop>
+            <ContCommentsBottom>
+                <p>Comments: <span>{currentPet.comments}</span></p>
+            </ContCommentsBottom>
             </div>
+            <ContButton>
+                <ListButton>
+                    <li>
+                        <Button type="Button">Contact</Button>
+                    </li>
+                    <li>
+                        <Button type="Button">Add to</Button>
+                    </li>
+                </ListButton>
+            </ContButton>
         </Container>
         </>
     )
