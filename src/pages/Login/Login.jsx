@@ -14,7 +14,6 @@ const Login = () => {
             password: '',
         },
         onSubmit: (value, { resetForm }) => {
-            console.log(value)
             dispatch(login(value))
             resetForm()
         }

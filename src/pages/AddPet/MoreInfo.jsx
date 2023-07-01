@@ -50,7 +50,6 @@ const MoreInfo = ({handleMoreInfo, handleBack}) => {
         },
         onSubmit: (value, {resetForm}) =>  {
             handleMoreInfo(value)
-            console.log('==================')
             
 
             resetForm()

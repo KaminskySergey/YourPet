@@ -16,10 +16,8 @@ import Box from "../Box/Box";
 const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false)
     const {isDesktop, isTablet, isMobile} = useResponce()
-    console.log(isDesktop) 
     const isAuth = useSelector(selectedIsLoadingUser)
     const {user} = useSelector(selectedUser)
-    console.log(user, 'isAuth')
     const handleToggle = () => {
         setIsOpen(pS => !pS)
     }

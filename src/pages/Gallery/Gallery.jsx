@@ -10,7 +10,6 @@ const [currentPet, setCurrentPet] = useState()
     const handleInfoPet = (data) => {
         setCurrentPet(data)
         setIsOpen(pS => !pS)
-console.log(data, 'dataaaaaaaa')
     }
     return (
         <>

@@ -46,7 +46,6 @@ const [moreInfo, setMoreInfo] = useState(null)
         const { image, location, price, comment, sex } = moreInfo;
         const { name, birth, breed, title } = personalInfo;
         
-        console.log({status: chooseInfo, image, location, price, comments: comment, sex, name: name, age: birth, breed})
         const petData = {
             title: title,
             name: name,
@@ -62,7 +61,6 @@ const [moreInfo, setMoreInfo] = useState(null)
           };
         await dispatch(createPets(petData));
         
-        console.log({chooseInfo, personalInfo, moreInfo}, '6666666')
     }
 
     const handleChooseInfo = (data) => {

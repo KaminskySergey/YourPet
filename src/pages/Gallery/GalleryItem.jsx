@@ -20,7 +20,6 @@ const GalleryItem = ({handleInfoPet}) => {
   const [isPaw, setIsPaw] = useState(false)
   const dispatch = useDispatch()
   const pets = useSelector(selectedPets)
-  console.log(pets)
   const handleClickButton = (data) => {
     handleInfoPet(data)
     setIsPaw((pS) => (pS === data._id ? null : data._id))

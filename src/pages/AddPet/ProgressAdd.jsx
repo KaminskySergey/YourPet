@@ -43,7 +43,6 @@ div {
 `
 // #CCE4F
 const ProgressAdd = ({step}) => {
-    console.log(step, 'stepstep')
     const firstDivColor = step >= 2 ? 'green' : '#54ADFF';
     const secondDivColor = firstDivColor === 'green' ? '#54ADFF' : (step === 1 ? '#CCE4FB' : '#54ADFF');
     

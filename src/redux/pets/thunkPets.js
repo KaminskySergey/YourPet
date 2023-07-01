@@ -11,11 +11,10 @@ export const allPets = createAsyncThunk('pets/all', async (credential, thunkAPI)
     }
 })
 
-export const allPetsById = createAsyncThunk('pets/ById', async (userId, thunkAPI) => {
+export const allPetsById = createAsyncThunk('pets/ById', async (credential, thunkAPI) => {
     
     try {
         const {data} = await axios.get(`/pets/currentPets`)
-        console.log(data, 'byId')
         return data.result
     } catch (error) {
         return thunkAPI.rejectWithValue(error);
@@ -26,6 +25,16 @@ export const createPets = createAsyncThunk('pets/create', async (credential, thu
     try {
         const {data} = await axios.post('pets', credential)
         return data.result
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error);
+    }
+})
+
+export const deletePets = createAsyncThunk('pets/delete', async (id, thunkAPI) => {
+    console.log(id, 'credentialcredentialcredential')
+    try {
+        await axios.delete(`pets/${id}`)
+        return id
     } catch (error) {
         return thunkAPI.rejectWithValue(error);
     }
